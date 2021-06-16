@@ -154,7 +154,7 @@ object Extractor {
             when (PossibleWorkManagerCall.fromRawMethodName(call.method)) {
                 PossibleWorkManagerCall.INITIALIZE -> {
                     WorkManagerCall.Initialize(
-                            call.argument<Long>(INITIALIZE_TASK_CALL_HANDLE_KEY)!!,
+                            (call.argument<Any>(INITIALIZE_TASK_CALL_HANDLE_KEY)!!).toString().toLong(),
                             call.argument<Boolean>(INITIALIZE_TASK_IS_IN_DEBUG_MODE_KEY)!!
                     )
                 }
